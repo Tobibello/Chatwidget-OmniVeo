@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { X, Send, User, Bot } from 'lucide-react';
+import { X, Send, User } from 'lucide-react';
 
 interface ChatMessage {
   id: string;
@@ -93,11 +93,19 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose }) => {
             <div className="overflow-y-auto p-4 space-y-4 h-80">
               {messages.map((message) => (
                 <div key={message.id} className={`flex gap-3 ${message.sender === 'user' ? 'flex-row-reverse' : ''}`}>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-                    message.sender === 'user' ? 'bg-blue-500' : 'bg-gray-700'
-                  }`}>
-                    {message.sender === 'user' ? <User className="w-4 h-4 text-white" /> : <Bot className="w-4 h-4 text-gray-300" />}
-                  </div>
+                  {message.sender === 'user' ? (
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-blue-500">
+                      <User className="w-4 h-4 text-white" />
+                    </div>
+                  ) : (
+                    <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-gray-700/50 p-1">
+                      <img 
+                        src="/OmniVeologo.png" 
+                        alt="OmniVeo AI" 
+                        className="w-full h-full rounded-full object-cover"
+                      />
+                    </div>
+                  )}
                   <div className={`max-w-[75%] ${message.sender === 'user' ? 'text-right' : ''}`}>
                     <div className={`inline-block p-3 rounded-2xl ${
                       message.sender === 'user' 
