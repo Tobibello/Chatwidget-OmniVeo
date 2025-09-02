@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-hidden;
+  }
+}
+
+@layer utilities {
+  .shadow-3xl {
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Voice wave animations */
+@keyframes wave {
+  0%, 100% { 
+    transform: scaleY(0.5);
+    opacity: 0.5;
+  }
+  50% { 
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+
+.wave-animation {
+  animation: wave 1.2s ease-in-out infinite;
+}
+
+/* Smooth dragging cursor */
+.cursor-grabbing {
+  cursor: grabbing !important;
+}
+
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active {
+  cursor: grabbing;
+}
