@@ -73,6 +73,11 @@ const ChatPanel: React.FC<ChatPanelProps> = ({ isOpen, onClose }) => {
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-700/30">
               <div className="flex items-center gap-2">
+                <img 
+                  src="/OmniVeologo.png" 
+                  alt="OmniVeo" 
+                  className="w-6 h-6 rounded"
+                />
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <h3 className="text-white font-medium">Live Chat</h3>
               </div>

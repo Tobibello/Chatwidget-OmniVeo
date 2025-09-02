@@ -98,25 +98,28 @@ const CallWidget: React.FC = () => {
         onMouseDown={handleMouseDown}
       >
         <div className="flex items-center gap-3 px-4 py-3">
-          {/* Microphone Button */}
-          <div className="relative">
-            <button
-              onClick={toggleMicrophone}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm ${
-                isListening 
-                  ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25 hover:bg-blue-600' 
-                  : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
-              }`}
-            >
-              {isListening ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
-              <span>{isListening ? 'Listen' : 'Muted'}</span>
-            </button>
-            {isListening && (
-              <div className="absolute -right-2 top-1/2 transform -translate-y-1/2">
-                <VoiceWaveAnimation />
-              </div>
-            )}
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img 
+              src="/OmniVeologo.png" 
+              alt="OmniVeo" 
+              className="w-8 h-8 rounded-lg"
+            />
           </div>
+
+          {/* Microphone Button */}
+          <button
+            onClick={toggleMicrophone}
+            className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-200 font-medium text-sm ${
+              isListening 
+                ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/25 hover:bg-blue-600' 
+                : 'bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white'
+            }`}
+          >
+            {isListening ? <Mic className="w-4 h-4" /> : <MicOff className="w-4 h-4" />}
+            <span>{isListening ? 'Listen' : 'Muted'}</span>
+            {isListening && <VoiceWaveAnimation />}
+          </button>
 
           {/* Ask Question Button */}
           <button
